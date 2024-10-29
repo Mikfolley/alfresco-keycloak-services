@@ -1,0 +1,11 @@
+# Utilizar la imagen base oficial de Alfresco Share
+FROM alfresco/alfresco-share:23.2.1
+
+# Copiar el archivo de configuración al contenedor
+COPY config/share-config-custom.xml /usr/local/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
+
+# Exponer el puerto en el que Alfresco Share escucha
+EXPOSE 9090
+
+#Iniciar el servidor de Tomcat
+#CMD ["catalina.sh", "run"]

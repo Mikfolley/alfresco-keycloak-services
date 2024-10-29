@@ -1,0 +1,151 @@
+:root {
+    --primary-color: #392bf8;
+    --secondary-color: #007bff; /* Cambiado a color azul */
+    --text-muted: #888;
+    --error-color: crimson;
+    --enterprise-color: #0c79bf;
+    --font-bold: 'Open Sans Bold', Arial, sans-serif;
+    --font-normal: 'Open Sans', Arial, sans-serif;
+    --font-size-large: 1.8rem;
+    --font-size-medium: 1.2rem;
+    --font-size-small: 0.85rem;
+    --input-width: 316px;
+    --button-height: 100px; /* Aumentamos la altura del botón a 100px */
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../../css/fonts/opensans.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    font-style: normal;
+    font-weight: 600;
+    src: url(../../css/fonts/opensansbold.woff) format('woff');
+}
+
+body {
+    background-image: url("http://picsum.photos/1920/1080");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: var(--font-normal);
+}
+
+body.ENTERPRISE {
+    background-color: var(--enterprise-color);
+}
+
+body.UNKNOWN {
+    background-color: var(--background-color);
+}
+
+div.login {
+    padding: 2rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Centra el contenido */
+}
+
+div.login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 80%);
+    transform: rotate(45deg);
+    z-index: 0;
+    animation: wave 6s infinite linear;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(45deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(45deg) translateX(100%);
+    }
+}
+
+div.login > * {
+    position: relative;
+    z-index: 1;
+}
+
+.login .product-name {
+    font-size: var(--font-size-large);
+    color: #941b1b; /* Cambiado a color 941b1b */
+    font-family: var(--font-bold);
+    margin-top: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login .product-tagline,
+.login .product-community {
+    color: var(--text-muted);
+    font-size: var(--font-size-medium);
+}
+
+.login .product-tagline {
+    display: none;
+}
+
+.login form {
+    padding: 0;
+}
+
+.login .form-fields.login {
+    padding-left: 0;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: #fff;
+    outline: none;
+    font-size: var(--font-size-medium);
+    width: var(--input-width);
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: border-bottom-color 0.2s;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+.login .custom-btn {
+    background-color: #941b1b !important;
+    border-radius: 50px; /* Cambiado a bordes redondeados */
+    color: white;
+    transition: background-color 0.3s;
+    width: 50%; /* Ajusta el ancho al 50% */
+    max-width: 250px; /* Mantén el ancho máximo */
+}
+
+.login .custom-btn:hover {
+    background-color: #e07b1a !important;
+}
+
+.login .forgot-password {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: var(--font-size-small);
+}
+
+.login .forgot-password:hover {
+    text-decoration: underline;
+}
